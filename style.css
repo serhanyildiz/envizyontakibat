@@ -1,10 +1,14 @@
 :root {
-  --primary: #003366;
-  --accent: #00b4d8;
-  --bg: #f5f7fa;
-  --text: #333;
-  --card: #fff;
+  --primary: #1e3a8a;      
+  --accent: #10b981;        
+  --bg: #f9fafb;           
+  --text: #1f2937;         
+  --card: #ffffff;         
+  --muted: #6b7280;         
+  --accent-hover: #059669;  
+  --header-shadow: rgba(0, 0, 0, 0.06);
 }
+
 
 * {
   box-sizing: border-box;
@@ -28,8 +32,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--header-shadow); 
+  border-bottom: 1px solid rgba(255,255,255,0.1); 
 }
+
 
 .logo {
   font-size: 28px;
@@ -49,6 +55,7 @@ nav a {
 
 nav a:hover {
   color: var(--accent);
+  text-decoration: underline; 
 }
 
 main {
@@ -75,6 +82,9 @@ main {
 h2, h3 {
   color: var(--primary);
   margin-bottom: 20px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 6px;
 }
 
 input, select, textarea {
@@ -86,6 +96,7 @@ input, select, textarea {
   font-size: 16px;
   background: #fff;
 }
+
 
 button {
   background: var(--accent);
@@ -101,8 +112,8 @@ button {
 }
 
 button:hover {
-  background: #0096c7;
-  transform: translateY(-2px);
+  background: var(--accent-hover);
+  transform: scale(1.02);
 }
 
 .form-box {
@@ -130,8 +141,8 @@ th, td {
 }
 
 th {
-  background-color: #f0f4f8;
-  font-weight: 600;
+  background-color: #f1f5f9;
+  color: var(--text);
 }
 
 .etkinlik {
