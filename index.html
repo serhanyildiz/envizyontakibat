@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EnVizyon</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <a class="logo" onclick="cikisYap()">🧠 EnVizyon</a>
+    <nav>
+      <a href="#" id="adminLink" onclick="showSection('admin')" style="display:none;">Admin Panel</a>
+      <a href="#" id="userLink" onclick="showSection('kullanici')" style="display:none;">Kullanıcı Panel</a>
+      <a href="#" id="logoutNav" onclick="cikisYap()" style="display:none;">Çıkış Yap</a>
+      <a href="#" id="girisNav" onclick="showSection('giris')">Giriş Yap</a>
+      <a href="#" id="kayitNav" onclick="showSection('kayit')">Kayıt Ol</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="giris" class="content-section">
+      <h2>🔐 Giriş Yap</h2>
+      <input type="text" id="loginUsername" placeholder="Kullanıcı Adı">
+      <input type="password" id="loginPassword" placeholder="Şifre">
+      <button onclick="girisYap()">Giriş Yap</button>
+      <button onclick="showSection('kayit')">Kayıt Ol</button>
+    </section>
+
+    <section id="kayit" class="content-section hidden">
+      <h2>📝 Kayıt Ol</h2>
+      <input type="text" id="registerUsername" placeholder="Yeni Kullanıcı Adı">
+      <input type="password" id="registerPassword" placeholder="Şifre">
+      <input type="password" id="registerPasswordAgain" placeholder="Şifre Tekrar">
+      <select id="registerSinif">
+        <option value="">Sınıf Seçin</option>
+        <option value="11En1">11En1</option>
+        <option value="10En1">10En1</option>
+        <option value="10En2">10En2</option>
+        <option value="9En1">9En1</option>
+      </select>
+      <button onclick="kayitOl()">Kayıt Ol</button>
+      <button onclick="showSection('giris')">Giriş Yap</button>
+    </section>
+
+    <section id="admin" class="content-section hidden">
+      <h2>🧑‍💼 Admin Paneli</h2>
+      <div class="form-box">
+        <h3>Ders Ekle</h3>
+        <select id="sinif">
+          <option value="">Sınıf Seçin</option>
+          <option value="11En1">11En1</option>
+          <option value="10En1">10En1</option>
+          <option value="10En2">10En2</option>
+          <option value="9En1">9En1</option>
+        </select>
+        <select id="dersTuru">
+          <option value="Akademik">Akademik</option>
+          <option value="Meslek">Meslek</option>
+        </select>
+        <input type="text" id="dersAdi" placeholder="Ders Adı">
+        <select id="gun">
+          <option value="">Gün Seçin</option>
+          <option value="Pazartesi">Pazartesi</option>
+          <option value="Salı">Salı</option>
+          <option value="Çarşamba">Çarşamba</option>
+          <option value="Perşembe">Perşembe</option>
+          <option value="Cuma">Cuma</option>
+        </select>
+        <select id="saat">
+          <option value="">Saat Seçin</option>
+          <option value="08:30 - 09:15">08:30 - 09:15</option>
+          <option value="09:30 - 10:15">09:30 - 10:15</option>
+          <option value="10:30 - 11:15">10:30 - 11:15</option>
+          <option value="11:30 - 12:15">11:30 - 12:15</option>
+          <option value="13:00 - 13:45">13:00 - 13:45</option>
+          <option value="14:00 - 14:45">14:00 - 14:45</option>
+          <option value="15:00 - 15:45">15:00 - 15:45</option>
+        </select>
+        <button onclick="dersEkle()">Ders Ekle</button>
+      </div>
+      <div class="form-box">
+        <h3>Etkinlik Ekle</h3>
+        <select id="kulup">
+          <option value="">Kulüp Seçin</option>
+          <option value="Sosyal Faaliyetler Kulübü">Sosyal Faaliyetler Kulübü</option>
+          <option value="Bilişim Kulübü">Bilişim Kulübü</option>
+          <option value="Kütüphane Kulübü">Kütüphane Kulübü</option>
+          <option value="Kişisel Gelişim Kulübü">Kişisel Gelişim Kulübü</option>
+          <option value="Dijital Tasarım Kulübü">Dijital Tasarım Kulübü</option>
+          <option value="Sanat Kulübü">Sanat Kulübü</option>
+        </select>
+        <input type="date" id="etkinlikTarihi">
+        <textarea id="etkinlikAciklama" placeholder="Açıklama"></textarea>
+        <button onclick="etkinlikEkle()">Etkinlik Ekle</button>
+      </div>
+    </section>
+
+    <section id="kullanici" class="content-section hidden">
+      <h2>🎓 Kullanıcı Paneli</h2>
+      <div class="form-box">
+        <h3>Haftalık Ders Programı</h3>
+        <table id="dersTablosu">
+          <thead>
+            <tr>
+              <th>Tür</th>
+              <th>Ders</th>
+              <th>Gün</th>
+              <th>Saat</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="form-box">
+        <h3>Kulüp Etkinlikleri</h3>
+        <div id="etkinlikAlani"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>©️ 2025 EnVizyon - Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
